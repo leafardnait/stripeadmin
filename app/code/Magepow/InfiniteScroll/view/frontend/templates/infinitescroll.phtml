@@ -1,0 +1,43 @@
+<?php
+$helper = $this->helper('Magepow\InfiniteScroll\Helper\Data');
+$isEnabled      = $helper->getConfigModule('general/enabled');
+$delay          = $helper->getConfigModule('general/delay');
+$content        = $helper->getConfigModule('general/content');
+$pagination     = $helper->getConfigModule('general/pagination');
+$next           = $helper->getConfigModule('general/next');
+$item           = $helper->getConfigModule('general/item');
+$loadingText    = $helper->getConfigModule('general/loading_text');
+$doneText       = $helper->getConfigModule('general/done_text');
+$loadMore       = $helper->getConfigModule('general/load_more');
+$loadMoreText   = $helper->getConfigModule('general/load_more_text');
+$loadingImage   = $helper->getConfigModule('general/loading_image');
+$imgPath        = 'magepow/infinitescroll/'.$loadingImage;
+if ($loadingImage) {
+    $loadingImage = $block->getMedia($imgPath);
+}else{
+    $loadingImage = $this->getViewFileUrl('images/loader-1.gif');
+} 
+?>
+
+<script type="text/x-magento-init">
+    {
+        "body": {
+            "magepowInfinitescroll": {
+                "container"   : "<?php echo $content;?>",
+                "item"        : "<?php echo $item;?>",
+                "pagination"  : "<?php echo $pagination;?>",
+                "next"        : "<?php echo $next;?>",
+                "delay"       : "<?php echo $delay;?>",
+                "src"         : "<?php echo $loadingImage; ?>",
+                "htmlLoading" : "<div class=\"iass-spinner\"><img src=\"{src}\"/><span><?php echo $loadingText; ?></span></div>",
+                "htmlLoadMore": "<div class=\"ias-trigger ias-trigger-next\"><button class=\"load-more\"><?php echo $loadMoreText ?></button></div>",
+                "htmlLoadEnd" : "<div class=\"ias-noneleft\">{text}</div>",
+                "textLoadEnd" : "<?php echo $doneText;?>",
+                "textLoadMore": "<?php echo $loadMoreText ?>",
+                "textPrev"    : "<?php echo $loadMoreText ?>",
+                "htmlPrev"    : "<div class=\"ias-trigger ias-trigger-prev\"><button class=\"load-more\"><?php echo $loadMoreText ?></button></div>",
+                "offset"      : "<?php echo $loadMore ?>"
+            }
+        }
+    }
+</script>

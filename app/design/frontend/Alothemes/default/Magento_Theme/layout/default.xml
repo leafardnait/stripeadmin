@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+		<referenceContainer name="page.wrapper">
+			<block class="Magento\Theme\Block\Html\Header" name="alothemes_header" template="html/header.phtml" before="-">
+                <block class="Magento\Cms\Block\Block" name="cms-static-top-support">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">cms-static-top-support</argument>
+                    </arguments>
+                </block>
+				<block class="Magento\Framework\View\Element\Html\Links" name="header.links">
+                    <arguments>
+                        <argument name="css_class" xsi:type="string">header links</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Framework\View\Element\Html\Links" name="links.header">
+                    <arguments>
+                        <argument name="css_class" xsi:type="string">links header</argument>
+                    </arguments>
+                </block>
+				<!--<block class="Magiccart\Magicmenu\Block\Menu" name="vmenu" as="vmenu" template="vmenu.phtml" /-->
+                <block class="Magento\Framework\View\Element\Template" name="top.search" as="topSearch" template="Magento_Search::form.mini.phtml"/>
+				 <block class="Magento\Theme\Block\Html\Header" name="welcometop" template="html/welcome.phtml" as="welcometop">
+                     <arguments>
+                      <argument name="show_part" xsi:type="string">welcome</argument>
+                     </arguments>
+                </block>
+            </block>
+		</referenceContainer>
+        <move element="minicart" destination="alothemes_header"/>
+		<move element="catalog.compare.link" destination="alothemes_header"/>
+
+		<move element="top.search" destination="alothemes_header"/>
+		<move element="logo" destination="alothemes_header"/>
+		 <move element="store_language" destination="alothemes_header"/>
+        <move element="currency" destination="alothemes_header"/>
+		<move element="navigation.sections" destination="alothemes_header"/>
+		<move element="vmenu" destination="alothemes_header"/>
+        <move element="skip_to_content" destination="alothemes_header"/>
+		
+        <move element="header.panel" destination="header.panel.wrapper"/>
+        <move element="top.links" destination="header.panel" after="-"/>
+        <move element="catalog.topnav" destination="store.menu" before="-"/>
+		<move element="copyright" destination="alo.footer"/>
+        <referenceContainer name="main.content" htmlTag="main" htmlClass="page-main page-main-pal container" />
+        <referenceContainer name="columns" htmlClass="alocolumns clearfix" />
+        <referenceContainer name="main" htmlClass="column main" />
+
+		<referenceContainer name="sections.page.bottom">
+            <block class="Magento\Cms\Block\Block" name="brands">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">cms-static-brands</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="custom.product">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">cms-static-mix-custom-product</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="page.bottom" after="custom.product">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">cms-static-page-bottom</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+		<referenceContainer name="footer-container">
+            <referenceBlock name="store_switcher" remove="true"/>
+            <block class="Magento\Theme\Block\Html\Footer" name="alo.footer" template="html/footer.phtml">
+                <block class="Magento\Cms\Block\Block" name="main-footer">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">cms-static-main-footer</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceContainer>
+		<referenceContainer name="header.container" remove="true"/>
+        <referenceContainer name="header.panel" remove="true"/>
+        <referenceContainer name="header-wrapper" remove="true"/>
+		<referenceBlock name="report.bugs" remove="true"/>
+		<referenceBlock name="footer_links" remove="true"/>
+		<referenceBlock name="form.subscribe" remove="true"/>
+    </body>
+</page>

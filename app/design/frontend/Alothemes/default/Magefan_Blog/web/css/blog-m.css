@@ -1,0 +1,60 @@
+/**
+ * Copyright © 2015 Ihor Vansach (ihor@magefan.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Glory to Ukraine! Glory to the heroes!
+ */
+
+.clearfix:after {
+  content:"";
+  display:table;
+  clear:both;
+}
+.post-holder {margin-bottom: 20px;}
+.post-list .post-holder{margin-bottom: 50px;}
+.post-holder .post-header {position:relative;}
+.post-holder .post-header .post-info {padding: 14px 0; border-bottom: 1px dotted #d8d8d8;}
+.item.post-categories .label{font-weight: 400;}
+/* .post-holder .post-header .post-info .item,
+.post-holder .post-header .post-info .dash {display: inline-block;} */
+.post-holder .post-header .post-info .dash{padding: 0 5px;display: none;}
+.post-holder .post-header .post-info .item .label,
+.post-holder .post-header .post-info .item a,
+.block-categories .accordion li a,.block-recent-posts .item a,
+.block-archive .item a,.post-bottom .block-content .item a{font-size: 14px;}
+.post-list {list-style: none;}
+.post-list .post-content .post-read-more {display: inline-block;font-size: 12px;line-height: 38px;margin: 20px 0 0;padding: 0 30px;}
+.post-content .post-description img {margin:0 15px 0 15px;}
+.post-content .post-description ul,
+.post-content .post-description ol {list-style-position: inside;}
+.post-content .post-description .post-ftimg-hld img {width:100%; padding:0px; margin:0px;}
+.blog-index-index.page-layout-2columns-left .column.main, .blog-index-index.page-layout-2columns-right .column.main,.blog-post-view.page-layout-2columns-right .column.main,.blog-post-view.page-layout-2columns-left .column.main{margin-top:0;}
+.post-list .post-header .post-title {max-width:80%;}
+.post-list .post-header .post-title a,.post-view .post-header .post-title a {color: #2a2a2a;font-size: 18px;outline: medium none;text-decoration: none;font-weight: 400;}
+.post-list .post-header .post-title,.post-view .post-header .post-title {margin: 0px;padding: 10px 0;float:left;}
+.post-list .post-holder .post-header .addthis_toolbox {float: right; padding-top: 16px;}
+.toolbar.toolbar-blog-posts{border: 0;padding: 0;}
+.post-text-hld p{ color: #5b5b5b;font-size: 13px;font-weight: 300;line-height: 25px;}
+.post-view .post-text-hld{padding: 10px 0;}
+.post-view .post-holder .post-header .addthis_toolbox {float: right;padding-top: 20px;}
+.post-view .post-bottom {margin-top:30px;}
+.post-bottom .block.related .block-title strong {font-size: 16px;font-weight: bold;line-height: normal;padding: 0;text-transform: uppercase;}
+.post-view .block {margin-bottom: 30px;}
+.widget.block-categories ul {/* list-style: initial; */padding-left:0px;}
+.widget.block-categories ul ul {margin-left:20px;}
+.widget.block-categories ul{margin: 0px;padding: 0px;}
+.widget.block-categories li {padding: 0px;margin: 0;}
+.widget.block-rss .rss-icon {float: left; width: 23px; padding-right: 10px;}
+.widget.blog-search {width:100%;margin-bottom: 40px;position: relative;z-index: 4;}
+.widget.blog-search .block-content {margin-bottom: 0;}
+.block.blog-search .actions{padding:0;}
+.widget.blog-search  label {border: 0;clip: rect(0, 0, 0, 0);height: 1px; margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;text-decoration: none;display: inline-block;float: right;}
+.widget.blog-search .control {border-top: 0; margin: 0; padding: 0; clear: both;}
+.widget.blog-search input {position: static;padding-right: 35px;margin: 0;left: -300%;}
+.widget.blog-search .action.search { position: absolute;right: 0px;top: 0;z-index: 1;display: inline-block;background-image: none;background: none;-moz-box-sizing: content-box;border: 0;box-shadow: none;line-height: inherit;margin: 0;text-decoration: none;text-shadow: none;font-weight: 400;}
+.widget.blog-search .action.search:before {-webkit-font-smoothing: antialiased;font-size: 16px;line-height: 32px;color: #8f8f8f;content: attr(data-icon);font-family: "Simple-Line-Icons";margin: 0;vertical-align: top;display: inline-block;font-weight: normal;overflow: hidden;speak: none;text-align: center;}
+.widget.blog-search .action.search > span {border: 0;clip: rect(0, 0, 0, 0);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}
+.blog-index-index .accor-title{padding: 0;}
+.blog-index-index .sidebar .accordion-container{margin-bottom: 0;}
+.block-categories .accordion li a,
+.sidebar .block-recent-posts .item a,.block-archive .item a{border-bottom: 1px solid #f0f0f0;display: block;font-size: 13px;font-weight: 300;line-height: 38px;outline: medium none; padding: 0;text-decoration: none;}

@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="2columns-left" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	
+    <body>
+        <referenceContainer name="sidebar.additional">
+            <block class="Magento\Cms\Block\Block" name="banner.sidebar" after="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">cms-static-banner-sidebar</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="product.sidebar" after="banner.sidebar">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">cms-static-latest-product-sidebar</argument>
+                </arguments>
+            </block>
+        	<block class="Magento\Cms\Block\Block" name="policy.sidebar" after="product.sidebar">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">cms-static-policy</argument>
+                </arguments>
+            </block>
+            <referenceBlock name="wishlist_sidebar" remove="true"/>
+            <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        </referenceContainer>
+        <referenceContainer name="product.info.media" htmlTag="div" htmlClass="product-media product media" />
+        <referenceContainer name="product.info.main" htmlTag="div" htmlClass="product-info-main product-shop" >
+        	<container name="product.shop.content" htmlTag="div" htmlClass="product-shop-content clearfix" />
+        </referenceContainer>
+        <move element="product.info.review" destination="product.info.price" before="-"/>
+        <move element="product.info.social" destination="product.info.price" before="product.price.final"/>
+        <move element="product.info.addto" destination="product.info.main" before="product.info.overview"/>
+		<move element="page.main.title" destination="product.info.main" before="-"/>
+		<move element="product.info.overview" destination="product.info.main" after="product.info.price" />
+        <move element="product.info.media" destination="product.inner" before="-"/>
+        <move element="product.info.main" destination="product.inner" after="product.info.media"/>
+        <referenceContainer name="content">
+        	<!-- <container name="product.view" htmlTag="div" htmlClass="product-view" before="-"> -->
+        		<container name="product.essential" htmlTag="div" htmlClass="product-essential" before="-">
+        			<container name="product.inner" htmlTag="div" htmlClass="row" before="-" />
+        		</container>
+		    <!-- </container> -->
+        </referenceContainer>
+        <move element="alo.product.timer" destination="product.info.main" after="product.info.overview"/>
+        <container name="alo.product.timer" as="alo_product_timer" label="Alo Product Timer"  htmlTag="div" htmlClass="sections-content-timer wrap"/>
+        <referenceContainer name="alo.product.timer" htmlClass="additional-timer-block">
+            <block class="Magento\Catalog\Block\Product\View" name="product.timer" as="product_timer" template="product/view/timer.phtml">
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">Timer</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <container name="social.product.view">
+            <block class="Magento\Catalog\Block\Product\View" name="product.social.main" template="Magento_Catalog::product/view/social.phtml" after="product.info.mailto"/>
+        </container>
+        <move element="product.social.main" destination="product.info.main" after="product.info.addto"/>
+    </body>
+</page>

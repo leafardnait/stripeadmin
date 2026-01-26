@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <page>
+    <item>
+      <title><![CDATA[404 Not Found]]></title>
+      <page_layout><![CDATA[1column]]></page_layout>
+      <identifier><![CDATA[no-route]]></identifier>
+      <content_heading><![CDATA[]]></content_heading>
+      <content><![CDATA[<div class="page-404">
+	<div class="row">
+		<div class="text-title">
+			<h1 class="title-404">404</h1>
+			<h2 class="title-2-404">Opps! have no idea what just happened.</h2>
+			<p class="text-404">The page you're looking for can’t be found. You might find these links userful</p>
+			<a href="#" class="button-404">Back to Homepage</a>
+		</div>
+		<div class="img-404"><img src="{{media url=&quot;wysiwyg/alothemes/static/404.jpg&quot;}}" alt="" /></div>
+	</div>
+</div>]]></content>
+      <layout_update_xml><![CDATA[]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Enable Cookies]]></title>
+      <page_layout><![CDATA[1column]]></page_layout>
+      <identifier><![CDATA[enable-cookies]]></identifier>
+      <content_heading><![CDATA[What are Cookies?]]></content_heading>
+      <content><![CDATA[<div class="enable-cookies cms-content">
+<p>"Cookies" are little pieces of data we send when you visit our store. Cookies help us get to know you better and personalize your experience. Plus they help protect you and other shoppers from fraud.</p>
+<p style="margin-bottom: 20px;">Set your browser to accept cookies so you can buy items, save items, and receive customized recommendations. Here’s how:</p>
+<ul>
+<li><a href="https://support.google.com/accounts/answer/61416?hl=en" target="_blank">Google Chrome</a></li>
+<li><a href="http://windows.microsoft.com/en-us/internet-explorer/delete-manage-cookies" target="_blank">Internet Explorer</a></li>
+<li><a href="http://support.apple.com/kb/PH19214" target="_blank">Safari</a></li>
+<li><a href="https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences" target="_blank">Mozilla/Firefox</a></li>
+</ul>
+</div>]]></content>
+      <layout_update_xml><![CDATA[]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Privacy and Cookie Policy]]></title>
+      <page_layout><![CDATA[1column]]></page_layout>
+      <identifier><![CDATA[privacy-policy-cookie-restriction-mode]]></identifier>
+      <content_heading><![CDATA[Privacy and Cookie Policy]]></content_heading>
+      <content><![CDATA[<div class="privacy-policy cms-content">
+    <div class="message info">
+        <span>
+            Please replace this text with you Privacy Policy.
+            Please add any additional cookies your website uses below (e.g. Google Analytics).
+        </span>
+    </div>
+    <p>
+        This privacy policy sets out how this website (hereafter "the Store") uses and protects any information that
+        you give the Store while using this website. The Store is committed to ensuring that your privacy is protected.
+        Should we ask you to provide certain information by which you can be identified when using this website, then
+        you can be assured that it will only be used in accordance with this privacy statement. The Store may change
+        this policy from time to time by updating this page. You should check this page from time to time to ensure
+        that you are happy with any changes.
+    </p>
+    <h2>What we collect</h2>
+    <p>We may collect the following information:</p>
+    <ul>
+        <li>name</li>
+        <li>contact information including email address</li>
+        <li>demographic information such as postcode, preferences and interests</li>
+        <li>other information relevant to customer surveys and/or offers</li>
+    </ul>
+    <p>
+        For the exhaustive list of cookies we collect see the <a href="#list">List of cookies we collect</a> section.
+    </p>
+    <h2>What we do with the information we gather</h2>
+    <p>
+        We require this information to understand your needs and provide you with a better service,
+        and in particular for the following reasons:
+    </p>
+    <ul>
+        <li>Internal record keeping.</li>
+        <li>We may use the information to improve our products and services.</li>
+        <li>
+            We may periodically send promotional emails about new products, special offers or other information which we
+            think you may find interesting using the email address which you have provided.
+        </li>
+        <li>
+            From time to time, we may also use your information to contact you for market research purposes.
+            We may contact you by email, phone, fax or mail. We may use the information to customise the website
+            according to your interests.
+        </li>
+    </ul>
+    <h2>Security</h2>
+    <p>
+        We are committed to ensuring that your information is secure. In order to prevent unauthorised access or
+        disclosure, we have put in place suitable physical, electronic and managerial procedures to safeguard and
+        secure the information we collect online.
+    </p>
+    <h2>How we use cookies</h2>
+    <p>
+        A cookie is a small file which asks permission to be placed on your computer's hard drive.
+        Once you agree, the file is added and the cookie helps analyse web traffic or lets you know when you visit
+        a particular site. Cookies allow web applications to respond to you as an individual. The web application
+        can tailor its operations to your needs, likes and dislikes by gathering and remembering information about
+        your preferences.
+    </p>
+    <p>
+        We use traffic log cookies to identify which pages are being used. This helps us analyse data about web page
+        traffic and improve our website in order to tailor it to customer needs. We only use this information for
+        statistical analysis purposes and then the data is removed from the system.
+    </p>
+    <p>
+        Overall, cookies help us provide you with a better website, by enabling us to monitor which pages you find
+        useful and which you do not. A cookie in no way gives us access to your computer or any information about you,
+        other than the data you choose to share with us. You can choose to accept or decline cookies.
+        Most web browsers automatically accept cookies, but you can usually modify your browser setting
+        to decline cookies if you prefer. This may prevent you from taking full advantage of the website.
+    </p>
+    <h2>Links to other websites</h2>
+    <p>
+        Our website may contain links to other websites of interest. However, once you have used these links
+        to leave our site, you should note that we do not have any control over that other website.
+        Therefore, we cannot be responsible for the protection and privacy of any information which you provide whilst
+        visiting such sites and such sites are not governed by this privacy statement.
+        You should exercise caution and look at the privacy statement applicable to the website in question.
+    </p>
+    <h2>Controlling your personal information</h2>
+    <p>You may choose to restrict the collection or use of your personal information in the following ways:</p>
+    <ul>
+        <li>
+            whenever you are asked to fill in a form on the website, look for the box that you can click to indicate
+            that you do not want the information to be used by anybody for direct marketing purposes
+        </li>
+        <li>
+            if you have previously agreed to us using your personal information for direct marketing purposes,
+            you may change your mind at any time by letting us know using our Contact Us information
+        </li>
+    </ul>
+    <p>
+        We will not sell, distribute or lease your personal information to third parties unless we have your permission
+        or are required by law to do so. We may use your personal information to send you promotional information
+        about third parties which we think you may find interesting if you tell us that you wish this to happen.
+    </p>
+    <p>
+        You may request details of personal information which we hold about you under the Data Protection Act 1998.
+        A small fee will be payable. If you would like a copy of the information held on you please email us this
+        request using our Contact Us information.
+    </p>
+    <p>
+        If you believe that any information we are holding on you is incorrect or incomplete,
+        please write to or email us as soon as possible, at the above address.
+        We will promptly correct any information found to be incorrect.
+    </p>
+    <h2><a name="list"></a>List of cookies we collect</h2>
+    <p>The table below lists the cookies we collect and what information they store.</p>
+    <table class="data-table data-table-definition-list">
+        <thead>
+        <tr>
+            <th>Cookie Name</th>
+            <th>Cookie Description</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>FORM_KEY</th>
+                <td>Stores randomly generated key used to prevent forged requests.</td>
+            </tr>
+            <tr>
+                <th>PHPSESSID</th>
+                <td>Your session ID on the server.</td>
+            </tr>
+            <tr>
+                <th>GUEST-VIEW</th>
+                <td>Allows guests to view and edit their orders.</td>
+            </tr>
+            <tr>
+                <th>PERSISTENT_SHOPPING_CART</th>
+                <td>A link to information about your cart and viewing history, if you have asked for this.</td>
+            </tr>
+            <tr>
+                <th>STF</th>
+                <td>Information on products you have emailed to friends.</td>
+            </tr>
+            <tr>
+                <th>STORE</th>
+                <td>The store view or language you have selected.</td>
+            </tr>
+            <tr>
+                <th>USER_ALLOWED_SAVE_COOKIE</th>
+                <td>Indicates whether a customer allowed to use cookies.</td>
+            </tr>
+            <tr>
+                <th>MAGE-CACHE-SESSID</th>
+                <td>Facilitates caching of content on the browser to make pages load faster.</td>
+            </tr>
+            <tr>
+                <th>MAGE-CACHE-STORAGE</th>
+                <td>Facilitates caching of content on the browser to make pages load faster.</td>
+            </tr>
+            <tr>
+                <th>MAGE-CACHE-STORAGE-SECTION-INVALIDATION</th>
+                <td>Facilitates caching of content on the browser to make pages load faster.</td>
+            </tr>
+            <tr>
+                <th>MAGE-CACHE-TIMEOUT</th>
+                <td>Facilitates caching of content on the browser to make pages load faster.</td>
+            </tr>
+            <tr>
+                <th>SECTION-DATA-IDS</th>
+                <td>Facilitates caching of content on the browser to make pages load faster.</td>
+            </tr>
+            <tr>
+                <th>PRIVATE_CONTENT_VERSION</th>
+                <td>Facilitates caching of content on the browser to make pages load faster.</td>
+            </tr>
+            <tr>
+                <th>X-MAGENTO-VARY</th>
+                <td>Facilitates caching of content on the server to make pages load faster.</td>
+            </tr>
+            <tr>
+                <th>MAGE-TRANSLATION-FILE-VERSION</th>
+                <td>Facilitates translation of content to other languages.</td>
+            </tr>
+            <tr>
+                <th>MAGE-TRANSLATION-STORAGE</th>
+                <td>Facilitates translation of content to other languages.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>]]></content>
+      <layout_update_xml><![CDATA[]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[About Us]]></title>
+      <page_layout><![CDATA[1column]]></page_layout>
+      <identifier><![CDATA[about-us]]></identifier>
+      <content_heading><![CDATA[]]></content_heading>
+      <content><![CDATA[<div class="about-us-content content">
+<div class="row">
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 box">
+<div class="box-content">
+<div class="img"><a href="#"><img class="img-responsive" src="{{media url="wysiwyg/alothemes/static/cms/about-img-1.jpg"}}" alt="" /></a></div>
+<div class="subcribe">
+<h3 class="title">What we really do?</h3>
+<p class="text">Donec libero dolor, tincidunt id laoreet vitae, ullamcorper eu tortor. Maecenas pellentesque, dui vitae iaculis mattis, tortor nisi faucibus magna, vitae ultrices lacus purus vitae metus.</p>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 box">
+<div class="box-content">
+<div class="img"><a href="#"><img class="img-responsive" src="{{media url="wysiwyg/alothemes/static/cms/about-img-2.jpg"}}" alt="" /></a></div>
+<div class="subcribe">
+<h3 class="title">Our Version</h3>
+<p class="text">Donec libero dolor, tincidunt id laoreet vitae, ullamcorper eu tortor. Maecenas pellentesque, dui vitae iaculis mattis, tortor nisi faucibus magna, vitae ultrices lacus purus vitae metus.</p>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 box">
+<div class="box-content">
+<div class="img"><a href="#"><img class="img-responsive" src="{{media url="wysiwyg/alothemes/static/cms/about-img-3.jpg"}}" alt="" /></a></div>
+<div class="subcribe">
+<h3 class="title">History of Beginning</h3>
+<p class="text">Donec libero dolor, tincidunt id laoreet vitae, ullamcorper eu tortor. Maecenas pellentesque, dui vitae iaculis mattis, tortor nisi faucibus magna, vitae ultrices lacus purus vitae metus.</p>
+</div>
+</div>
+</div>
+</div>
+</div>]]></content>
+      <layout_update_xml><![CDATA[<referenceContainer name="alo.sections.top">
+    <block class="Magento\Cms\Block\Block" name="about-us-title">
+        <arguments>
+            <argument name="block_id" xsi:type="string">cms-static-about-us-title</argument>
+        </arguments>
+    </block>
+</referenceContainer>
+<referenceContainer name="alo.sectionsbottom">
+    <block class="Magento\Cms\Block\Block" name="company-worker">
+        <arguments>
+            <argument name="block_id" xsi:type="string">cms-static-company-worker</argument>
+        </arguments>
+    </block>
+    <block class="Magento\Cms\Block\Block" name="detail-about">
+        <arguments>
+            <argument name="block_id" xsi:type="string">cms-static-detail-about</argument>
+        </arguments>
+    </block>
+</referenceContainer>]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[FAQs]]></title>
+      <page_layout><![CDATA[1column]]></page_layout>
+      <identifier><![CDATA[faq]]></identifier>
+      <content_heading><![CDATA[]]></content_heading>
+      <content><![CDATA[<div class="pages faq">
+	<h3 class="title page-title">Frequently asked questions</h3>
+	<p class="short-description">This Agreement was last modified on 18 February 2016</p>
+	<ul class="list-question">
+		<li class="question-item">
+			<input type="radio" name="toggle" id="q1" checked="" />
+			<label class="question-name" for="q1"><span>What shipping method are available?</span></label>
+			<div class="question-content">
+				<p>In egestas, libero vitae scelerisque tristique, turpis augue faucibus dolor, at aliquet ligula massa at justo. Donec viverra tortor quis tortor pretium, in pretium risus finibus. Integer viverra pretium auctor. Aliquam eget convallis eros, varius sagittis nulla. Suspendisse potenti. Aenean consequat ex sit amet metus ultrices tristique. Nam ac nunc augue. Suspendisse finibus in dolor eget volutpat.</p>
+			</div>
+		</li>
+		<li class="question-item">
+			<input type="radio" name="toggle" id="q2" />
+			<label class="question-name" for="q2"><span>How Long Will it Take To Get My Package?</span></label>
+			<div class="question-content">
+				<p>In egestas, libero vitae scelerisque tristique, turpis augue faucibus dolor, at aliquet ligula massa at justo. Donec viverra tortor quis tortor pretium, in pretium risus finibus. Integer viverra pretium auctor. Aliquam eget convallis eros, varius sagittis nulla. Suspendisse potenti. Aenean consequat ex sit amet metus ultrices tristique. Nam ac nunc augue. Suspendisse finibus in dolor eget volutpat.</p>
+			</div>
+		</li>
+		<li class="question-item">
+			<input type="radio" name="toggle" id="q3" />
+			<label class="question-name" for="q3"><span>How Do I Track My Order?</span></label>
+			<div class="question-content">
+				<p>In egestas, libero vitae scelerisque tristique, turpis augue faucibus dolor, at aliquet ligula massa at justo. Donec viverra tortor quis tortor pretium, in pretium risus finibus. Integer viverra pretium auctor. Aliquam eget convallis eros, varius sagittis nulla. Suspendisse potenti. Aenean consequat ex sit amet metus ultrices tristique. Nam ac nunc augue. Suspendisse finibus in dolor eget volutpat.</p>
+			</div>
+		</li>
+		<li class="question-item">
+			<input type="radio" name="toggle" id="q4" />
+			<label class="question-name" for="q4"><span>How do I place an Order?</span></label>
+			<div class="question-content">
+				<p>In egestas, libero vitae scelerisque tristique, turpis augue faucibus dolor, at aliquet ligula massa at justo. Donec viverra tortor quis tortor pretium, in pretium risus finibus. Integer viverra pretium auctor. Aliquam eget convallis eros, varius sagittis nulla. Suspendisse potenti. Aenean consequat ex sit amet metus ultrices tristique. Nam ac nunc augue. Suspendisse finibus in dolor eget volutpat.</p>
+			</div>
+		</li>
+		<li class="question-item">
+			<input type="radio" name="toggle" id="q5" />
+			<label class="question-name" for="q5"><span>Who should I to contact if I have any queries?</span></label>
+			<div class="question-content">
+				<p>In egestas, libero vitae scelerisque tristique, turpis augue faucibus dolor, at aliquet ligula massa at justo. Donec viverra tortor quis tortor pretium, in pretium risus finibus. Integer viverra pretium auctor. Aliquam eget convallis eros, varius sagittis nulla. Suspendisse potenti. Aenean consequat ex sit amet metus ultrices tristique. Nam ac nunc augue. Suspendisse finibus in dolor eget volutpat.</p>
+			</div>
+		</li>
+		<li class="question-item">
+			<input type="radio" name="toggle" id="q6" />
+			<label class="question-name" for="q6"><span>Do I need an account to place an order?</span></label>
+			<div class="question-content">
+				<p>In egestas, libero vitae scelerisque tristique, turpis augue faucibus dolor, at aliquet ligula massa at justo. Donec viverra tortor quis tortor pretium, in pretium risus finibus. Integer viverra pretium auctor. Aliquam eget convallis eros, varius sagittis nulla. Suspendisse potenti. Aenean consequat ex sit amet metus ultrices tristique. Nam ac nunc augue. Suspendisse finibus in dolor eget volutpat.</p>
+			</div>
+		</li>
+	</ul>
+</div>]]></content>
+      <layout_update_xml><![CDATA[]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+    <item>
+      <title><![CDATA[Home page 2]]></title>
+      <page_layout><![CDATA[2columns-left]]></page_layout>
+      <identifier><![CDATA[demo-2]]></identifier>
+      <content_heading><![CDATA[]]></content_heading>
+      <content><![CDATA[<!-- banner -->
+<div class="cms-page-banner">
+<div class="row">
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 banner-box">
+<div class="banner-box-content"><a href="#"><img class="img-responsive" src="{{media url="wysiwyg/alothemes/static/demo2/banner_01.jpg"}}" alt="" /></a> <a class="btn-shop" href="#">shop now</a></div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 banner-box">
+<div class="banner-box-content"><a href="#"><img class="img-responsive" src="{{media url="wysiwyg/alothemes/static/demo2/banner_02.jpg"}}" alt="" /></a> <a class="btn-shop" href="#"><em class="hidden">hidden</em></a></div>
+</div>
+</div>
+</div>
+<!-- end banner -->
+<!-- main product -->
+<div class="cms-page-main-product main-product">
+{{widget type="Magiccart\Magicproduct\Block\Widget\Product" identifier="main-product-02" template="product.phtml"}}
+</div>
+<!-- main product countdown -->
+<div class="cms-page-countdown-product">{{widget type="Magiccart\Magicproduct\Block\Widget\Product" identifier="cms-static-timer-product" template="product.phtml"}}</div>
+<!-- show producr -->
+<div class="cms-static-bestsellers-category bestsellers-category section-category-slide">
+{{widget type="Magiccart\Magicproduct\Block\Widget\Category" template="category-custom.phtml" identifier="category-custom2"}}
+</div>
+<!-- banner -->
+<div class="cms-static-bottom-banner bottom-banner">
+<img class="img-responsive" src="{{media url="wysiwyg/alothemes/static/demo2/banner_03.jpg"}}" alt="" />
+</div>
+<!-- show product -->
+<div class="cms-static-section-products fearured-products section-products-slide">
+{{widget type="Magiccart\Magicproduct\Block\Widget\Product" identifier="latest-products2" template="product.phtml"}}
+</div>]]></content>
+      <layout_update_xml><![CDATA[<referenceContainer name="slide.showcase">
+            <block class="Magento\Cms\Block\Block" name="cms-static-main-slide">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">cms-static-main-slide</argument>
+                </arguments>
+            </block>
+</referenceContainer>
+<!-- Sidebar Home remove -->
+<!-- Sidebar Main-->
+<referenceContainer name="div.sidebar.main">
+             <referenceBlock name="accordion.sidebar" remove="true"/>
+          <block class="Magento\Cms\Block\Block" name="block_view_left_home">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">block_view_left_home</argument>
+                </arguments>
+            </block>
+ </referenceContainer>
+<referenceContainer name="sidebar.additional">
+            <referenceBlock name="wishlist_sidebar" remove="true"/>
+ </referenceContainer>]]></layout_update_xml>
+      <is_active><![CDATA[1]]></is_active>
+    </item>
+  </page>
+</root>

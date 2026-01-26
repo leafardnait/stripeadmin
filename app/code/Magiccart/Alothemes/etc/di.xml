@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="magiccart_initQuickstart" xsi:type="object">Magiccart\Alothemes\Console\Command\Quickstart</item>
+                 <item name="magiccart_RandomRelated" xsi:type="object">Magiccart\Alothemes\Console\Command\RandomRelated</item>
+                 <item name="magiccart_RandomUpsell" xsi:type="object">Magiccart\Alothemes\Console\Command\RandomUpsell</item>
+                 <item name="magiccart_RandomCrosssell" xsi:type="object">Magiccart\Alothemes\Console\Command\RandomCrosssell</item>
+                 <item name="magiccart_RandomProductLink" xsi:type="object">Magiccart\Alothemes\Console\Command\RandomProductLink</item>
+                 <item name="magiccart_TemplateToProduct" xsi:type="object">Magiccart\Alothemes\Console\Command\TemplateToProduct</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

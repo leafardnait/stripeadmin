@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- /**
+ * Magiccart 
+ * @category    Magiccart 
+ * @copyright   Copyright (c) 2014 Magiccart (http://www.magiccart.net/) 
+ * @license     http://www.magiccart.net/license-agreement.html
+ * @Author: DOng NGuyen<nguyen@dvn.com>
+ * @@Create Date: 2016-02-23 18:59:34
+ * @@Modify Date: 2017-05-27 17:41:40
+ * @@Function:
+ */ -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+  <body>
+    <referenceContainer name="page.top">
+     <block class="Magento\Newsletter\Block\Subscribe" name="popup.newsletter" template="subscribe-popup.phtml" />
+    </referenceContainer>
+  </body>
+</page>

@@ -1,0 +1,36 @@
+<?php
+/**
+ * Magiccart 
+ * @category    Magiccart 
+ * @copyright   Copyright (c) 2014 Magiccart (http://www.magiccart.net/) 
+ * @license     http://www.magiccart.net/license-agreement.html
+ * @Author: DOng NGuyen<nguyen@dvn.com>
+ * @@Create Date: 2018-05-16 22:57:12
+ * @@Modify Date: 2020-07-23 17:40:38
+ * @@Function:
+ */
+ ?>
+<?php
+$slider = $this->getSlider();
+if(!$slider) return;
+$selector = 'alo-content-slider'. uniqid();
+?>
+<div class="<?php echo $selector ?>">
+    <div class="alo-lookbook grid-slider"
+        <?php foreach ($this->getFrontendCfg() as $opt) :?>
+            data-<?php /* @escapeNotVerified */ echo $opt ?>='<?php /* @escapeNotVerified */ echo $this->getData($opt) ?>'
+        <?php endforeach;?>
+    >
+    <?php
+    foreach ($slider as $lookbook) {
+        echo $block->getLayout()->createBlock('Magiccart\Lookbook\Block\Widget\Product')->setLookbook($lookbook)->setTemplate('item.phtml')->toHtml();
+    }
+    ?>
+    </div>
+</div>
+<script type="text/javascript">
+    require(['jquery','gridSlider'], function($, gridSlider){
+        var el  = $('.<?php echo $selector ?>');
+        if(el.length) el.gridSlider();
+    });
+</script>

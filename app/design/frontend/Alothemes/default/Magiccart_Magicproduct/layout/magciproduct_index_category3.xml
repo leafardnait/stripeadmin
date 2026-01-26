@@ -1,0 +1,14 @@
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <container name="root">
+<!--         <action method="setTemplate">
+            <argument name="template" xsi:type="string">Magiccart_Magicproduct::magiccart/magicproduct/ajax.phtml</argument>
+        </action> -->
+		<!-- <block class="Magiccart\Magicproduct\Block\Catalog\GridProduct" name="GridProduct" template="Magiccart_Magicproduct::product/grid.phtml"/> -->
+        <block class="Magento\Framework\Pricing\Render" name="product.price.render.default">
+            <arguments>
+                <argument name="price_render_handle" xsi:type="string">catalog_product_prices</argument>
+                <argument name="use_link_for_as_low_as" xsi:type="boolean">true</argument>
+            </arguments>
+        </block>
+    </container>
+</layout>

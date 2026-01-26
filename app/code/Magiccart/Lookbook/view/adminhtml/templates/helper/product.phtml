@@ -1,0 +1,220 @@
+<?php
+/**
+ * Magepow 
+ * @category 	Magepow 
+ * @copyright 	Copyright (c) 2014 Magiccart (https://www.magepow.com) 
+ * @license 	https://www.magepow.com/license-agreement.html
+ * @Author: DOng NGuyen<nguyen@dvn.com>
+ * @@Create Date: 2018-05-16 22:57:12
+ * @@Modify Date: 2022-10-31 17:32:56
+ * @@Function:
+ */
+ ?>
+<style type="text/css">
+    .magic_pin_image_wrap {position: relative; text-align: center; width: 100%; }
+    .magic-wrap-relative-image {display: inline-block; }
+    .magic-wrap-relative-image img.magic_pin_image,
+    .select2-container {display: block; } 
+    .select2-container.inited {margin-top: 10px; }
+    .select2-container.inited .select2-choice .select2-arrow {background: none; border: none; }
+    .easy-delete {z-index: 9999; }
+    .easy-submit {display: block; width: 100%;  height: 30px; margin: 20px auto 0px; cursor: pointer; padding: 0; background-color: #eb5202; border-color: #eb5202; color: #ffffff; text-shadow: 1px 1px 0 rgb(0 0 0 / 25%)}
+    .easy-submit:hover{ background-color: #ba4000; border-color: #b84002; box-shadow: 0 0 0 1px #007bdb; color: #ffffff; text-decoration: none;}
+    .easy-tools {width: 45px !important; height: 14px !important; left: -5px !important; opacity: 1 !important;}
+    .easy-tools .easy-edit, .easy-tools .easy-delete {height: 14px !important; background-size: 12px !important; opacity: 1 !important;}
+    .container-wrap-pin{text-align: left; margin-left: -300px;} 
+    .magic_pin_image_wrap{margin: 35px auto; width: calc(100% + 300px); } 
+    .select_classes{margin-top: 15px;width: 100%;text-align: center;border-radius: 3px;background: #f2f2f2;border: solid 1px #aeaeae;padding: 3px 0;}
+    .selection .product-image {width: 25px; height: 25px; vertical-align: middle; margin-right:5px}
+    .result .product-image {width: 35px; height: 35px; vertical-align: middle; margin-right: 10px;}
+</style>
+<?php
+	$lookbook 	= $this->getData('lookbook');
+	$params = [
+	    'area' => 'adminhtml'
+	];
+	$plusMarker = $this->assetRepository->createAsset('Magiccart_Lookbook::js/plugin/images/plus-marker.png', $params);
+	$plusMarker = $plusMarker->getUrl();
+	$editIco  	= $this->assetRepository->createAsset('Magiccart_Lookbook::js/plugin/images/edit.png');
+	$editIco    = $editIco->getUrl();
+	$removeIco  = $this->assetRepository->createAsset('Magiccart_Lookbook::js/plugin/images/remove.png');
+	$removeIco  = $removeIco->getUrl();
+	$image_src  = $lookbook->getImage();
+	$_width = 0;
+	$_height = 0 ;
+	if($image_src){
+		$imageInfo 	= $this->getImageInfo($image_src);
+		if($imageInfo){
+			$_width 	= $imageInfo->getOriginalWidth();
+			$_height 	= $imageInfo->getOriginalHeight();			
+		}
+		$image_src 	= $this->getImageUrl($image_src);
+	} 
+	$_options = $lookbook->getOptions();
+	if($_options){
+		$_optionsArr = json_decode($_options, true);
+		if(isset($_optionsArr['magic_pin'])){
+			foreach ($_optionsArr['magic_pin'] as $key => $value) {
+				if(isset($value['content'])){
+					$_optionsArr['magic_pin'][$key]['content'] = $block->escapeJsQuote($value['content'], '"');
+				}			
+			}
+		}
+		if(isset($_optionsArr['magic_pin']['canvas'])){
+		    $_optionsArr['magic_pin']['canvas'] = array(
+		        'src' => $image_src,
+		        'width' => $_width,
+		        'height' => $_height
+		    );
+		}
+
+		$_options = json_encode($_optionsArr);
+
+	} else {
+		$_options = '{}';
+	}
+
+ 
+	$params = [
+	    'area' => 'frontend'
+	];
+?>
+<script id="wrap-magic-pin" type="text/template">
+<div class="container-wrap-pin">
+    <input id="magic_options_pin" type="hidden" name="options" value='<?php echo $_options ?>' />
+    <div class="magic_pin_image_wrap" style="width: <?php echo ($_width + 50)  ?>px">
+        <span class="magic-wrap-relative-image">
+            <img src="<?php echo $image_src; ?>" class="pin magic_pin_image <?php echo $image_src ? '' : 'no-image'; ?>" easypin-id="magic_pin" />
+        </span>
+        
+        <div class="easy-modal" style="display:none;" modal-position="free">
+            <?php echo __('Find product'); ?>
+            <textarea name="content" class="hidden"></textarea>
+            <select class="select_product form-control" name="product_id" title="<?php echo __('Select Product'); ?>" ></select>
+            <input class="select_classes" name="classes" type="text" value="" placeholder="<?php echo __('Class CSS') ?>" />
+            <button type="button" class="easy-submit"><?php echo __('Add pin') ?></button>
+        </div>
+        
+        <!-- popover -->
+        <div style="display:none; width: 200px;" shadow="true" popover>
+            <div style="width:100%;text-align:center;">{[content]}</div>
+        </div>
+    </div>
+</div>
+</script>
+<script type="text/javascript">
+	require(['jquery','easing', 'easypin','select2'], 
+		function($, easing, easypin){
+		    var magic_pin = {
+		        // 'url_search': '<?php echo $this->getUrl('search/ajax/suggest', $params); ?>',
+		        'url_search': '<?php echo $this->getUrl('mui/index/render/'); ?>',
+		        'url_media' : '<?php echo $this->getImageUrl(''); ?>',
+		        '_nonce': "_nonce"
+		    };
+		    
+		    $(document).ready(function ($) {
+		        $('#magic_image').parent().append($('#wrap-magic-pin').html());
+		        var _instance = null;
+		        if(!$('.magic_pin_image').hasClass('no-image')) {
+		            _instance = $('.pin').easypin({
+		                init: <?php echo $_options ?>,
+		                markerSrc: 	'<?php echo $plusMarker; ?>',
+		                editSrc: 	'<?php echo $editIco; ?>',
+		                deleteSrc: 	'<?php echo $removeIco; ?>',
+		                modalWidth: 400,
+		                
+		                /**
+		                 * Fixed position when drop
+		                 */
+		                drop: function(x, y, element) {
+		                    x = x + 15;
+		                    y = y + 48;
+		                    element.attr('data-x', x);
+		                    element.attr('data-y', y);
+		                },
+		                        
+		                done: function() {
+		                    return true;
+		                }
+		            });
+		        }
+		        
+		        $(document).on('click', '.easy-edit', function () {
+		            $('.magic-wrap-relative-image .select_product').each(function() {
+		            	var element = $(this);
+				        if($(element).hasClass('inited')) return;
+			            $(element).select2({
+		                    width 		: '100%',
+		                    cache 		: true,
+		                    allowClear  : true,
+		                    placeholder : '<?php echo __('Select Product'); ?>',
+		                    minimumInputLength : 3,
+		                    escapeMarkup: function (markup) {
+		                        return markup;
+		                    },
+		                    templateResult: function (item) {
+		                        var img  = item.src ? '<img class="product-image" src="' + item.src + '"/>' : '';
+		                        return $('<span class="result" >' + img + '<span class="title" >' + item.text + '</span></span>');
+		                    },
+		                    templateSelection: function (item) {
+		                        var img = item.src ? '<img class="product-image" src="' + item.src + '"/>' : '';
+		                        return $('<span class="selection" >' + img + '<span class="title" >' + item.text + '</span></span>');
+		                    },
+			                ajax: {
+			                    url: magic_pin.url_search,
+			                    dataType: 'json',
+			                    delay: 250,
+			                    cache: true,
+			                    data: function(params) {
+			                        return {
+			                            // q: terms,
+			                            search: params.term,
+			                            filters: {'name' :params.term, 'placeholder': true, 'visibility': 4, 'status': 1},
+			                            paging: {'pageSize' :50, 'current': 1},
+			                            sorting: {'field' : 'entity_id', 'direction': 'asc'},
+			                            security: magic_pin._nonce,
+			                            namespace:'product_listing',
+			                            isAjax:true,
+			                        };
+			                    },
+			                    processResults: function(data, params) {
+			                        var results = [];
+			                        var items = data.items;
+									$.each( items, function( key, item ) {
+			                            results.push({
+			                                id: item.entity_id,
+			                                src: magic_pin.url_media + 'catalog/product/cache/6bb1afe4a0d4072e3d1675d6f058c914' + item.thumbnail,
+			                                text: item.name
+			                            });
+									});
+
+			                        return {
+			                            results: results
+			                        };
+			                    }
+			                }
+			            });
+
+			            $(element).addClass('inited');
+						$(element).on('select2:select', function (e) {
+						    var item = e.params.data;
+						    if(item){
+						    	$(element).parents('.modalContext').find('textarea').val(item.text + '(#' + item.id + ')');
+						    }
+						});
+		            });
+		        });
+		        
+				$("#edit_form").submit(function(){
+					if(_instance) {
+			            _instance.easypin.event("get.coordinates", function(_instance, data, params) {
+			                $('#magic_options_pin').val(data);
+			            });
+					    _instance.easypin.fire("get.coordinates", {}, function(data) {
+			                return JSON.stringify(data);
+			            });
+					}
+				});
+		    });
+		});
+</script>

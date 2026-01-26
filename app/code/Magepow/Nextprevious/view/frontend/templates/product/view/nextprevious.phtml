@@ -1,0 +1,61 @@
+<?php 
+/*
+ * Magepow
+ * @category: Magepow
+ * @copyright: Copyright (c) 2014 Magepow (http://www.magepow.com/)
+ * @license: http://www.magepow.com/license-agreement
+ * @Author: DavidDuong
+ * @@Create Date: Wednesday, December 4th 2019, 8:43:54 pm
+ * @@Modified By: DavidDuong
+ * @@Modify Date: Friday, December 6th 2019, 3:41:40 pm
+ */ 
+
+    $_product       = $block->getProduct();
+    $prevProduct    = $block->getPrevProduct($_product);
+    $nextProduct    = $block->getNextProduct($_product);
+    if( !$prevProduct && !$nextProduct ) return; 
+    $category       = $block->getCurrentCategory($_product);
+    $image          = 'category_page_grid';
+    $showImage      = $this->_helper->getConfigModule('general/image');
+?>
+<div class="product-next-prev">
+    <ol class="products list items product-items">
+        <?php if($prevProduct): ?>
+            <?php $_item = $prevProduct ?>
+            <li class="item product product-item">
+                <div class="product-prev">
+                    <a class="btn-product-prev" title="<?php echo __('Previous') ?>" href="<?php echo $_item->getProductUrl(); ?>">
+                        <span class="arrow"><?php echo __('Previous') ?></span>
+                    </a>
+                    <?php if($showImage) : ?>
+                        <a href="<?php /* @escapeNotVerified */ echo $_item->getProductUrl() ?>" class="product photo product-item-photo" tabindex="-1">
+                            <?php echo $block->getImage($_item, $image)->toHtml(); ?>
+                        </a>
+                    <?php endif; ?>
+                </div>
+            </li>
+        <?php endif; ?>
+        <?php if($category) : ?>
+            <li class="item product product-item category-back-to">
+                <div class="category-back">
+                    <a href="<?php echo $category->getUrl(); ?>"><span><?php echo __('Back to:') ?> <?php echo $category->getName(); ?></span></a>
+                </div>
+            </li>
+        <?php endif; ?>
+        <?php if($nextProduct): ?>
+            <?php $_item = $nextProduct ?>
+            <li class="item product product-item">
+                <div class="product-next">
+                    <a class="btn-product-next" title="<?php echo __('Next') ?>" href="<?php echo $_item->getProductUrl(); ?>">
+                        <span class="arrow"><?php echo __('Next') ?></span>
+                    </a>
+                    <?php if($showImage) : ?>
+                        <a href="<?php /* @escapeNotVerified */ echo $_item->getProductUrl() ?>" class="product photo product-item-photo" tabindex="-1">
+                            <?php echo $block->getImage($_item, $image)->toHtml(); ?>
+                        </a>
+                    <?php endif; ?>
+                </div>
+            </li>
+        <?php endif; ?>
+    </ol>
+</div>

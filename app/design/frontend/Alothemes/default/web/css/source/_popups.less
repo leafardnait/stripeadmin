@@ -1,0 +1,62 @@
+// /**
+//  * Copyright © 2015 Magento. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Variables
+//  _____________________________________________
+
+@popup-marker__size: 7px;
+
+//
+//  Common
+//  _____________________________________________
+
+//
+//    Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+    .ui-dialog {
+        &.popup {
+            width: 420px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .modal-popup.modal-slide._inner-scroll.modals-ajaxcart .modal-inner-wrap {
+        min-height: 20vh !important;
+    }
+
+    .modals-quickview._show .modal-inner-wrap {
+        top: 30px !important;
+        min-height: 90vh !important;
+        margin: 0 20px !important;
+    }
+    .modal-custom .action-close::before,
+    .modal-popup .action-close::before,
+    .modal-slide .action-close::before {
+        font-size: 20px;
+        padding: 5px 10px;
+    }
+    .open-quickview .modal-popup.modals-quickview .modal-content::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 6px;
+        background-color: #F5F5F5;
+    }
+    .open-quickview .modal-popup.modals-quickview .modal-content::-webkit-scrollbar {
+        width: 6px;
+        background-color: #F5F5F5;
+    }
+    .open-quickview .modal-popup.modals-quickview .modal-content::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: #ccc;
+    }
+    .checkout-cart-index .cart-container .form-cart .item-info .action-delete,.checkout-cart-index  .cart-container .form-cart .item-info .action-edit{
+        display: inline-block;
+        margin-right: 20px;
+    }
+}

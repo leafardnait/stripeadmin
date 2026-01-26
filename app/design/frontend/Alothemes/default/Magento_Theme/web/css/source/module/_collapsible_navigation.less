@@ -1,0 +1,215 @@
+// /**
+//  * Copyright © 2015 Magento. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Variables
+//  ---------------------------------------------
+
+@collapsible-nav-background: @sidebar__background-color;
+@collapsible-nav-color: false;
+@collapsible-nav-current-border: 3px solid transparent;
+@collapsible-nav-current-border-color: @color-orange-red1;
+@collapsible-nav-current-color: false;
+@collapsible-nav-current-font-weight: @font-weight__semibold;
+@collapsible-nav-item-hover: @color-gray91;
+
+//
+
+//
+//  Common
+//  ---------------------------------------------
+
+& when (@media-common = true) {
+
+    //
+    //    Collapsible navigation
+    //  ---------------------------------------------
+
+    .block-collapsible-nav {
+        .item {
+            border-bottom: 1px solid #dddddd;
+            &:first-child {
+                border-top: 1px solid #dddddd;
+            }
+            a,
+            > strong {
+                display: block;
+                padding: 5px 18px 5px 15px;
+            }
+            a {
+                text-decoration: none;
+                &:hover {
+                    color: #ff5555;
+                }
+            }
+            &.current {
+                a,
+                strong {
+                    color: #ff5555;
+                    font-weight: 500;
+                }
+                a {
+                    color: #ff5555;
+                }
+            }
+        }
+    }
+
+    .data.switch .counter:before {
+        content: '(';
+    }
+    .data.switch .counter:after {
+        content: ')';
+    }
+
+    .product-info-main .reviews-actions .action:nth-child(2):before {
+        content: "|";
+    }
+    .catalog-product-view .review-add .block-title{display: block;}
+
+    .catalog-product-view .fieldset .review-legend.legend strong {
+        display: inline-block;
+        margin-left: 0.5em;
+    }
+
+    .cookie-status-message {
+        display: none;
+    }
+
+    .field.choice .label,
+    input[type="checkbox"] {
+        vertical-align: middle;
+        display: inline-block;
+        padding-left: 5px;
+        vertical-align: top;
+    }
+
+    .abs-account-actions:after,
+    .block-addresses-list .items.addresses .item.actions .action:after,
+    .account .data.table .col.actions .action:after,
+    [class^=sales-guest-] .data.table .col.actions .action:after,
+    .sales-guest-view .data.table .col.actions .action:after,
+    .block .box-actions .action:after {
+        border-left: 1px solid #a6a6a6;
+        content: '';
+        display: inline-block;
+        height: 12px;
+        margin: 0 10px;
+        vertical-align: -1px;
+    }
+
+    .abs-account-actions:last-child:after,
+    .block-addresses-list .items.addresses .item.actions .action:last-child:after,
+    .account .data.table .col.actions .action:last-child:after,
+    [class^=sales-guest-] .data.table .col.actions .action:last-child:after,
+    .sales-guest-view .data.table .col.actions .action:last-child:after,
+    .block .box-actions .action:last-child:after {
+        display: none;
+    }
+
+    .sales-order-view .main .block-content,
+    .sales-order-print .main .block-content {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    .sales-order-view .main .block-content .box:nth-child(2n),
+    .sales-order-print main .block-content .box:nth-child(2n) {
+        float: right;
+        margin-left: auto;
+    }
+
+    .sales-order-view .main .box .box-content,
+    .sales-order-print .main .box .box-content {
+        min-height: 150px;
+    }
+
+    .checkout-cart-index #shopping-cart-table .actions-toolbar {
+        vertical-align: middle;
+    }
+    .checkout-cart-index .form-cart .action.continue {
+        width: auto;
+        height: auto;
+        padding: 5.7px 50px;
+        border-radius: 25px;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        -o-border-radius: 25px;
+    }
+
+    .checkout-cart-index #shipping-zip-form {
+        .control{
+            background: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-size: 14px;
+            height: 38px;
+            padding: 0px 5px;
+            vertical-align: baseline;
+            width: 100%;
+            box-sizing: border-box;
+            select,
+            input {
+                border: 1px solid #fff;
+            }
+        }
+    }
+
+    #checkout-payment-method-load .actions-toolbar button span {
+        line-height: normal;
+    }
+
+}
+
+//
+//  Desktop
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .block-collapsible-nav {
+        .title {
+            &:extend(.abs-visually-hidden-desktop all);
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .page-wrapper {
+        overflow: visible !important
+    }
+
+    .catalog-product-view .sidebar-additional {
+        position: sticky;
+        position: -webkit-sticky;
+        top: 50px;
+        background-color: #fff
+    }
+}
+
+//
+//  Mobile
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .block-collapsible-nav {
+        left: 0;
+        position: absolute;
+        top: -21px;
+        width: 100%;
+        z-index: 5;
+        .title {
+            &:extend(.abs-toggling-title-mobile all);
+        }
+        .content {
+            border-bottom: @border-width__base solid @border-color__base;
+            display: none;
+            &.active {
+                display: block;
+            }
+        }
+    }
+}

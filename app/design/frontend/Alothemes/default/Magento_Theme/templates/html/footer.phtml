@@ -1,0 +1,31 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<div class="main-footer">
+	<div class="container">
+		<div class="row">
+		<?php echo $this->getChildHtml('main-footer'); ?>
+		</div>
+	</div>
+</div>
+<div class="footer-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
+				<a href="#" class="paypal"><img src="<?php echo $block->getViewFileUrl('images/paypal.png'); ?>"></a>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
+				<div class="copyright">
+					<?php echo $this->getChildHtml('copyright'); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	<a href="#" id="backtotop"><span class="fa fa-angle-up"></span><span class="back-to-top"><?php echo __('Back to Top')?></span></a>
+</div>
