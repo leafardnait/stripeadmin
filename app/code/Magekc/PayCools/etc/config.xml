@@ -1,0 +1,15 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/config.xsd">
+    <default>
+        <payment>
+            <paycools>
+                <active>0</active>
+                <title>PayCools Payment</title>
+                <private_key></private_key>
+                <public_key></public_key>
+                <api_url>https://api-uat.paycools.com</api_url>
+                <model>Magekc\PayCools\Model\Payment</model>
+            </paycools>
+        </payment>
+    </default>
+</config>

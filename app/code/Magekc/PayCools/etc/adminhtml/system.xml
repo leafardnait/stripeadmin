@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="paycools" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>PayCools Payment</label>
+                <comment>
+                    <![CDATA[
+                        <div style="background-color:#3855f1 ;padding:10px 20px;border-radius:10px;color:#ffffff">
+                            <table width="100%">
+                                <tr>
+                                    <td style="padding:0;"><a href="https://paycools.com.ph/" target="_blank"><img src="https://paycools.com.ph/_nuxt/img/paycools_logo_white.f3c317f.svg" style = "vertical-align:middle;" alt="PayCools" height="36" /></a></td>
+                                    <td style="padding:0;vertical-align:middle;width:40%">
+                                        <table width="100%">
+                                            <tr>
+                                                <td style="padding:0"><a style="color: #fff;" href="https://paycools.com.ph/price" target="_blank">Pricing</a></td>
+                                                <td style="padding:0"><a style="color: #fff;" href="https://paycools.com.ph/contact" target="_blank">Contact</a></td>
+                                                <td style="padding:0"><a style="color: #fff;" href="https://paycools.com.ph/about" target="_blank">About Us</a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    ]]>
+                </comment>
+
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="title" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+
+                <field id="app_id" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>APP ID</label>
+                </field>
+
+                <field id="private_key" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Merchant Private Key (PEM)</label>
+                </field>
+
+                <field id="public_key" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Merchant Public Key (PEM)</label>
+                </field>
+                 <field id="merchant_logo_url" translate="label" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Merchant Logo Url</label>
+                </field>
+                <field id="api_url" translate="label" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>API URL</label>
+                </field>
+
+                <field id="callback_url" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Callback URL</label>
+                </field>
+
+                <field id="notify_url" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Notify URL</label>
+                </field>
+
+                <field id="redirect_url" translate="label" type="text" sortOrder="36" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Redirect URL</label>
+                </field>
+
+                <field id="environment" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Environment</label>
+                    <comment><![CDATA[Select <b>Sandbox</b> for testing, and <b>Live</b> for production.]]></comment>
+                    <source_model>Magekc\PayCools\Model\Adminhtml\Source\Environment</source_model>
+                </field> 
+                
+                <field id="allowspecific" translate="label" type="allowspecific" sortOrder="180" showInDefault="9"
+                       showInWebsite="1" showInStore="0">
+                    <label>Payment From Applicable Countries</label>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                    <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="specificcountry" translate="label" type="multiselect" sortOrder="185" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
+                    <label>Payment From Specific Countries</label>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                </field>
+
+                <field id="sort_order" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Sort Order</label>
+                    <frontend_class>validate-number</frontend_class>
+                </field>
+            </group>
+            <!-- payment-group -->
+        </section>
+    </system>
+</config>
