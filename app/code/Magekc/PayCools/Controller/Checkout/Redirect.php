@@ -90,37 +90,8 @@ class Redirect extends \Magento\Framework\App\Action\Action
 			$res = json_decode($result, true);
 			
 			if( $res['code'] === 1 ){ // success
-			$redirect_url_gateway = $res['data']['checkoutUrl'];
-				if (!empty($redirect_url_gateway)) {
-					echo '<form action="' . $redirect_url_gateway . '" method="post" id="paycools_payment_form">
-						<style type="text/css">
-							@import url(https://fonts.googleapis.com/css?family=Raleway:100);
-							.Absolute-Center {font-family: "Roboto", Helvetica, Arial, sans-serif;width: 600px;height: 100px;position: absolute;top:0;bottom: 0;left: 0;right: 0;margin: auto;font-size: 14px;}
-							.Absolute-Center p{color:#ffffff}
-							body{background:#000d3a;margin: 40px 50px;color:#4a8df8;font-family: "Raleway", cursive;font-weight:100;}h1{color:#ff8200;font-family: "Raleway", cursive;font-weight:100;font-stretch:normal;font-size:3em;font-weight:bold;}
-							a{color:#ff8200;font-weight:bold;font-family: "Raleway", cursive;}.slider{position:absolute;width:400px;height:2px;margin-top:-20px;}.line{position:absolute;background:#ffffff;width:400px;height:2px;}
-							.break{position:absolute;background:#222;width:6px;height:2px;}
-							.dot1{-webkit-animation: loading 2s infinite;-moz-animation: loading 2s infinite;-ms-animation: loading 2s infinite;-o-animation: loading 2s infinite;animation: loading 2s infinite;}.dot2{-webkit-animation: loading 2s 0.5s infinite;-moz-animation: loading 2s 0.5s infinite;-ms-animation: loading 2s 0.5s infinite;-o-animation: loading 2s 0.5s infinite;animation: loading 2s 0.5s infinite;}
-							.dot3{-webkit-animation: loading 2s 1s infinite;-moz-animation: loading 2s 1s infinite;-ms-animation: loading 2s 1s infinite;-o-animation: loading 2s 1s infinite;animation: loading 2s 1s infinite;}
-							@keyframes "loading" {from { left: 0; }to { left: 400px; }}@-moz-keyframes loading {from { left: 0; }to { left: 400px; }}@-webkit-keyframes "loading" {from { left: 0; }to { left: 400px; }}@-ms-keyframes "loading" {from { left: 0; }to { left: 400px; }}@-o-keyframes "loading" {from { left: 0; }to { left: 400px; }
-						</style>
-						<div class="Absolute-Center">
-							<h1>Just a moment...</h1>
-							<div class="slider">
-								<div class="line"></div>
-								<div class="break dot1"></div>
-								<div class="break dot2"></div>
-								<div class="break dot3"></div>
-							</div>
-							<p>Please wait while you are being redirected to payment page... Not working? <a href="'.$redirect_url_gateway.'">Click here.</a></p>
-						</div>
-						<script type="text/javascript">
-							window.onload=function(){
-								document.forms["paycools_payment_form"].submit();
-							}
-						</script>
-					</form>';
-				}
+				$redirect_url_gateway = $res['data']['checkoutUrl'];
+				return $this->_redirect($redirect_url_gateway);
 			} else {
 				$res_message = $res['message'];
 				if ($res_message) {
