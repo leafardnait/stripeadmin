@@ -3,18 +3,22 @@ namespace Magekc\PayCools\Model;
 
 use Magekc\PayCools\Helper\Signature;
 use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magekc\PayCools\Logger\Handler\Debug as PayCoolsLogger;
 
 class ApiClient
 {
     protected $signatureHelper;
     protected $scopeConfig;
+    protected $payCoolsLogger;
 
     public function __construct(
         Signature $signatureHelper,
-        ScopeConfigInterface $scopeConfig
+        ScopeConfigInterface $scopeConfig,
+        PayCoolsLogger $payCoolsLogger
     ) {
         $this->signatureHelper = $signatureHelper;
         $this->scopeConfig     = $scopeConfig;
+        $this->payCoolsLogger  = $payCoolsLogger;
     }
 
     /**
@@ -31,6 +35,7 @@ class ApiClient
         $publicKeyPem  = $this->scopeConfig->getValue('payment/paycools/public_key');
         $apiUrl        = $this->scopeConfig->getValue('payment/paycools/api_url');
         $appId         = $this->scopeConfig->getValue('payment/paycools/app_id');
+        $debugMode     = $this->scopeConfig->getValue('payment/paycools/debug_mode');
         
         // 2. Encode param JSON string (must match exactly what you send)
         $paramJson = json_encode($params, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
@@ -70,8 +75,12 @@ class ApiClient
             curl_close($curl);
             throw new \Exception('cURL error: ' . $error);
         }
-
+        
         curl_close($curl);
+        if ($debugMode) {
+            $this->payCoolsLogger->customLog(print_r($requestData, true));
+            $this->payCoolsLogger->customLog(print_r($response, true));
+        }
         return $response;
     }
 }

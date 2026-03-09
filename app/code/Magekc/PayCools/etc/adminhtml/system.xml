@@ -86,7 +86,10 @@
                     </depends>
                     <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
                 </field>
-
+                <field id="debug_mode" translate="label" type="select" sortOrder="190" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Debug Mode?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
                 <field id="sort_order" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Sort Order</label>
                     <frontend_class>validate-number</frontend_class>

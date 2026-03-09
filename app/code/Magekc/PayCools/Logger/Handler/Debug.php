@@ -39,7 +39,7 @@ class Debug extends Base
      *
      * @var string
      */
-    protected $fileName = '/var/log/rsppayment.log';
+    protected $fileName = '/var/log/paycools.log';
 
 
     public function customLog($message, array $context = array())
