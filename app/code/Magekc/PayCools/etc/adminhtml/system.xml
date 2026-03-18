@@ -96,6 +96,26 @@
                 </field>
             </group>
             <!-- payment-group -->
+            <group id="paycools_multi_channel" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>PayCools Multi-Channel Payment</label>
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="channels" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Payment Channels (comma-separated Ex: GCASH_URL,ZFB_URL)</label>
+                </field>
+                <field id="callback_url" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Callback URL</label>
+                </field>
+                <field id="redirect_url" translate="label" type="text" sortOrder="36" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Redirect URL</label>
+                </field>
+            </group>
+
         </section>
     </system>
 </config>

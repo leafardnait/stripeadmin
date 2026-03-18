@@ -120,45 +120,7 @@ class Callback extends Action implements \Magento\Framework\App\CsrfAwareActionI
     {
        
         // $this->_rspConfig->tempLog($this->getRequest()->getParams());
-
-        if (!$this->getRequest()->isPost()) {
-            return;
-        }
-        
-        $response_code = $this->getRequest()->getPost('res_code');
-        $response_message = $this->getRequest()->getPost('res_message');
-        $res_trackid = $this->getRequest()->getPost('res_trackid');
-        $res_referenceid = $this->getRequest()->getPost('res_referenceid');
-        $res_description = $this->getRequest()->getPost('res_description');
-
-        if ($res_trackid) {
-            $res_trackid = explode('_', $res_trackid);
-        }
-
-        $this->_order = $this->_loadOrder(@$res_trackid[0]);
-        $state = $this->_order->getState();
-        
-        switch ($response_code) {
-            case '0':
-                $comment = 'order_paid: Payment Sucessfully placed with Reference Track Id : ' .$res_referenceid;
-                
-                $this->_handlePaymentOrderPaid($comment, $res_referenceid);
-                echo "\n\nSUCCESSFUL";
-                $this->getResponse()->setRedirect(
-                    $this->_getUrl('checkout/onepage/success')
-                );
-                $this->_success();
-                break;
-            default:
-                $this->messageManager->addErrorMessage(
-                    __('FAILED !. Unable to process your order !. '.$res_description)
-                );
-                $this->_failure();
-                /** @var \Magento\Framework\Controller\Result\Redirect $resultRedirect */
-                $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
-                return $resultRedirect->setPath('checkout/cart');
-                break;
-        }
+        $this->_getUrl('checkout/onepage/success');
     }
 
     /**

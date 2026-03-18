@@ -13,8 +13,17 @@
         <arguments>
             <argument name="configProviders" xsi:type="array">
                 <item name="paycools" xsi:type="object">Magekc\PayCools\Model\ConfigProvider</item>
+                <item name="paycools_multi_channel" xsi:type="object">Magekc\PayCools\Model\ConfigProviderMulti</item>
             </argument>
         </arguments>
     </type>
 
+    <!-- Map payment method code to its model -->
+    <type name="Magento\Payment\Model\Method\Factory">
+        <arguments>
+            <argument name="methods" xsi:type="array">
+                <item name="paycools_multi_channel" xsi:type="string">Magekc\PayCools\Model\PaymentMultiChannel</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

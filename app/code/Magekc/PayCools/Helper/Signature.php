@@ -37,9 +37,6 @@ class Signature extends AbstractHelper
         // 3. Remove null or empty values
         $params = array_filter($params, fn($v) => $v !== null && $v !== '');
 
-        // 4. Sort parameters alphabetically by key
-        ksort($params);
-
         // 5. Build key=value pairs and join with '&'
         $pairs = [];
         foreach ($params as $key => $value) {
@@ -49,6 +46,31 @@ class Signature extends AbstractHelper
         return implode('&', $pairs);
     }
 
+     /**
+     * Build canonical string for signing
+     *
+     * Rules (typical for payment gateways):
+     *  - Exclude the 'sign' field itself
+     *  - Flatten nested arrays/objects into JSON strings
+     *  - Remove null/empty values
+     *  - Sort parameters alphabetically by key
+     *  - Concatenate as key=value pairs joined by '&'
+     *
+     * @param array $params
+     * @return string
+     */
+    public function buildSignStringMultiChannel(array $params): string
+    {
+        unset($params['sign']);
+        foreach ($params as $k => $v) {
+            if (is_array($v)) {
+                $params[$k] = json_encode($v, JSON_UNESCAPED_SLASHES);
+            }
+        }
+        $params = array_filter($params, fn($v) => $v !== null && $v !== '');
+        ksort($params);
+        return implode('&', array_map(fn($k,$v) => "$k=$v", array_keys($params), $params));
+    }
 
     /**
      * RSA2 Sign (SHA256withRSA)

@@ -83,4 +83,68 @@ class ApiClient
         }
         return $response;
     }
+
+    /**
+     * Create a payment multi channel request and send it to the PayCools API.
+     *
+     * @param array $params  Payment parameters (orderId, amount, etc.)
+     * @return string        Raw JSON response from API
+     * @throws \Exception    If signature verification or cURL fails
+     */
+    public function createPaymentMultiChannel(array $params): string
+    {
+        $response = [];
+        // 1. Load credentials and API URL
+        $privateKeyPem = $this->scopeConfig->getValue('payment/paycools/private_key');
+        $publicKeyPem  = $this->scopeConfig->getValue('payment/paycools/public_key');
+        $apiUrl        = $this->scopeConfig->getValue('payment/paycools/api_url');
+        $appId         = $this->scopeConfig->getValue('payment/paycools/app_id');
+        $debugMode     = $this->scopeConfig->getValue('payment/paycools/debug_mode');
+
+        // 1. Build string to sign
+        $signString = $this->signatureHelper->buildSignStringMultiChannel($params);
+        
+        // 2. Get OpenSSL key object
+        $signature = $this->signatureHelper->sign(
+            $signString,
+            $privateKeyPem
+        );
+        $requestData = $params;
+        $requestData['sign'] = $signature;
+        
+        $isValid = $this->signatureHelper->verify($signString, $signature, $publicKeyPem);
+        $isValid = $this->signatureHelper->verify($signString, $signature, $publicKeyPem);
+        if (!$isValid) {
+            throw new \Exception('Signature verification failed locally.');
+        }
+
+        $curl = curl_init();
+        curl_setopt_array($curl, [
+        CURLOPT_URL => $apiUrl.'/api/v1/payment', // replace with full URL
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'POST',
+        CURLOPT_POSTFIELDS     => json_encode($requestData, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
+        CURLOPT_HTTPHEADER => ['Content-Type: application/json'],
+        ]);
+
+        $response = curl_exec($curl);
+
+        if ($response === false) {
+            $error = curl_error($curl);
+            curl_close($curl);
+            throw new \Exception('cURL error: ' . $error);
+        }
+        
+        curl_close($curl);
+        if ($debugMode) {
+            $this->payCoolsLogger->customLog(print_r($requestData, true));
+            $this->payCoolsLogger->customLog(print_r($response, true));
+        }
+        return $response;
+    }
 }

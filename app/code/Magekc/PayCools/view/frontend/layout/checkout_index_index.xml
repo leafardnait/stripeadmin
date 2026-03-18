@@ -25,6 +25,14 @@
                                                                         </item>
                                                                     </item>
                                                                 </item>
+                                                                <item name="paycools_multi_channel-payments" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Magekc_PayCools/js/view/payment/paycools-multi-channel-payments</item>
+                                                                    <item name="methods" xsi:type="array">
+                                                                        <item name="paycools_multi_channel" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
                                                             </item>
                                                         </item>
                                                     </item>

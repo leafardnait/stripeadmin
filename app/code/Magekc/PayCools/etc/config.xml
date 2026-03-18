@@ -10,6 +10,11 @@
                 <api_url>https://api-uat.paycools.com</api_url>
                 <model>Magekc\PayCools\Model\Payment</model>
             </paycools>
+            <paycools_multi_channel>
+                <active>1</active>
+                <title>PayCools Multi Channel Payment</title>
+                <model>Magekc\PayCools\Model\PaymentMultiChannel</model>
+            </paycools_multi_channel>
         </payment>
     </default>
 </config>
